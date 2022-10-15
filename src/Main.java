@@ -1,17 +1,15 @@
+import java.util.Arrays;
+
 public class Main {
     public static void main(String[] args) {
-        int number = Integer.MAX_VALUE;
+        int[] array = new int[] {1, 2, 3};
 
-        long bigNumber = Long.MAX_VALUE;
+        int[][] matrix = new int[][] {
+                {10, 11, 12},
+                {20, 22, 23}
+        };
 
-        float floatNumber = 23.2F;
-
-        double decimalNumber = 23.3234;
-
-        byte byteNumber = -128;
-
-        short shortNumber = 32767;
-
-        System.out.println(number);
+        System.out.println(matrix.length);
+        System.out.println(Arrays.toString(matrix[0]));
     }
 }
