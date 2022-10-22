@@ -1,5 +1,7 @@
 package FundamentalProgrammingStructures;
 
+import java.util.Scanner;
+
 // Write a program that
 // reads an integer and
 // prints it in
@@ -7,8 +9,6 @@ package FundamentalProgrammingStructures;
 // octal, and
 // hexadecimal.
 // Print the reciprocal as a hexadecimal floating-point number.
-
-import java.util.Scanner;
 
 public class ConvertInteger {
     public static void main(String[] args){

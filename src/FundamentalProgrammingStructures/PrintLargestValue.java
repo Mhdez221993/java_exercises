@@ -2,6 +2,10 @@ package FundamentalProgrammingStructures;
 
 import java.util.Scanner;
 
+/*
+Using only the conditional operator, write a program that reads three
+integers and prints the largest. Repeat with Math.max.
+ */
 public class PrintLargestValue {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
