@@ -10,7 +10,7 @@ package FundamentalProgrammingStructures;
 
 import java.util.Scanner;
 
-public class ReadPrint {
+public class ConvertInteger {
     public static void main(String[] args){
         Scanner in = new Scanner(System.in);
         System.out.println("To start converting please introduce a number");
