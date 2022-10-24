@@ -1,11 +1,15 @@
 package FundamentalProgrammingStructures;
 
+/*
+What happens when you cast a double to an int that is larger than the
+largest possible int value? Try it out.
+ */
 public class CastDoubleToInt {
     public static void main(String[] args) {
-        double n = Double.MAX_VALUE;
+        double n = 4294967292.50;
 
-        int nToInt = (int) n;
+        int doubleToInt = (int) n;
 
-        System.out.println(nToInt);
+        System.out.println(doubleToInt);
     }
 }
