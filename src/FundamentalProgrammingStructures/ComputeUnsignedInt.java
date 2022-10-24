@@ -1,6 +1,5 @@
 package FundamentalProgrammingStructures;
 
-import java.math.BigInteger;
 import java.util.Scanner;
 
 /*
@@ -10,7 +9,7 @@ sum, difference, product, quotient, and remainder. Do not convert them to
 long values.
  */
 
-public class ComputeIntValue {
+public class ComputeUnsignedInt {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
 
