@@ -1,5 +1,7 @@
 package FundamentalProgrammingStructures;
 
+import java.nio.charset.Charset;
+import java.util.Arrays;
 import java.util.Scanner;
 
 /*
@@ -9,13 +11,19 @@ not ASCII, together with their Unicode values.
 
 public class NonASCIIValues {
     public static void main(String[] args) {
+        System.out.println("Please introduce an argument like a text");
         Scanner in = new Scanner(System.in);
 
-        // Read text line
-        // iterate
-        // if the code point is gratter than 255 it is not ASSCi
-        // print that value's unicode
+        String input = in.nextLine().replaceAll(" ", "");
 
-        System.out.println(ascci);
+        System.out.println(input);
+
+        for(int i = 0; i < input.length(); i++) {
+            char ch = input.charAt(i);
+            int codePoint = input.codePointAt(i);
+            if(ch < 128) {
+                System.out.println(ch + " code point is: " + codePoint);
+            }
+        }
     }
 }
