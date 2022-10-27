@@ -1,5 +1,11 @@
 package FundamentalProgrammingStructures;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
+import java.util.stream.Collectors;
+
 /*
 Write a program that reads a two-dimensional array of integers and
 determines whether it is a magic square (that is, whether the sum of all
@@ -14,36 +20,46 @@ blank line. For example, with the input
 your program should respond affirmatively.
  */
 
-import java.util.Arrays;
-import java.util.Scanner;
-
 public class MagicSquare {
     public static void main(String[] args) {
-        String[][] array = twoDimensionalArray();
+        int[][] twoDArray = read2dArrayOfInt();
 
-        boolean result = isMagicSquare(array);
+        System.out.println(Arrays.deepToString(twoDArray));
 
-        System.out.println(Arrays.deepToString(array));
+        boolean isMagic = determineIfIsMagic(twoDArray);
 
+        System.out.println(isMagic);
     }
 
-    public static String[][] twoDimensionalArray(){
+    static int[][] read2dArrayOfInt(){
+        // Accept a line of input
         Scanner in = new Scanner(System.in);
 
-        String[][] square = new String[4][4];
+        System.out.println("Please introduce a line of integers");
 
-        for (int i = 0; i < 4; i++){
-            String input = in.nextLine();
+        int[][] twoDArray = new int[0][];
 
-            String[] row = input.split(" ");
+        while(true) {
+            String line = in.nextLine().trim();
 
-            square[i] = row;
+            if(line.length() < 1) break;
+
+            // convert and array from type String to type int
+            int[] lineToInt = Arrays.stream(line.split(" ")).mapToInt(Integer::parseInt).toArray();
+
+            twoDArray = Arrays.copyOf(twoDArray, twoDArray.length + 1);
+
+            twoDArray[twoDArray.length -1] = lineToInt;
+
         }
 
-        return square;
+        return twoDArray;
     }
 
-    public static boolean isMagicSquare(String[][] square) {
+    static boolean determineIfIsMagic(int[][] twoDArray) {
+        // the sum of all the rows
+        // columns
+        // and diagonal is the same
         return true;
     }
 }
