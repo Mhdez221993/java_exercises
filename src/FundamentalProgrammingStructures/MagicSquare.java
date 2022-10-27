@@ -24,8 +24,6 @@ public class MagicSquare {
     public static void main(String[] args) {
         int[][] twoDArray = read2dArrayOfInt();
 
-        System.out.println(Arrays.deepToString(twoDArray));
-
         boolean isMagic = determineIfIsMagic(twoDArray);
 
         System.out.println(isMagic);
@@ -57,10 +55,57 @@ public class MagicSquare {
     }
 
     static boolean determineIfIsMagic(int[][] twoDArray) {
-        // the sum of all the rows
-        // columns
-        // and diagonal is the same
+        int[] sumDiagonal = sumOfDiagonal(twoDArray, twoDArray.length);
+
+        if(sumDiagonal[0] - sumDiagonal[1] != 0) return false;
+
+        int[] sumCol = sumOfCols(twoDArray, twoDArray[0].length, twoDArray.length);
+
+        int[] sumRow = sumOfRows(twoDArray, twoDArray[0].length, twoDArray.length);
+
+        for (int i = 0; i < sumRow.length; i++) {
+            if(sumRow[i] != sumCol[i]) return false;
+        }
+
+
         return true;
+    }
+
+    static int[] sumOfCols(int[][] twoDArray, int col, int row) {
+        int[] sum = new int[col];
+
+        for(int i = 0; i < col; i++) {
+            for (int j = 0; j < row; j++) {
+                sum[i] += twoDArray[j][i];
+            }
+        }
+
+        return sum;
+    }
+
+    static int[] sumOfRows(int[][] twoDArray, int col, int row) {
+        int[] sum = new int[col];
+
+        for(int i = 0; i < col; i++) {
+            for (int j = 0; j < row; j++) {
+                sum[i] += twoDArray[i][j];
+            }
+        }
+
+        return sum;
+    }
+
+    static int[] sumOfDiagonal(int[][] twoDArray, int N) {
+        int sumOfDiagonal1 = 0;
+        int sumOfDiagonal2 = 0;
+
+        for(int i = 0; i < twoDArray.length; i++) {
+            sumOfDiagonal1 += twoDArray[i][i];
+
+            sumOfDiagonal2 += twoDArray[i][N - (i+1)];
+        }
+
+        return new int[] {sumOfDiagonal1, sumOfDiagonal2};
     }
 }
 
