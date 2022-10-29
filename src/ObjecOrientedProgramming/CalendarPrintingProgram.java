@@ -6,9 +6,10 @@ Also make it print a newline at the end (but only one).
  */
 
 import java.time.LocalDate;
+import java.util.Random;
+import java.util.Scanner;
 
 public class CalendarPrintingProgram {
-
     public static void main(String[] args) {
         final int DAYS_PER_WEEK = 7;
 
