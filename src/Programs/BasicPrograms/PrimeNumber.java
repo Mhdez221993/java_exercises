@@ -11,7 +11,7 @@ import java.util.Scanner;
 public class PrimeNumber {
     public static boolean isPrime(int n) {
 
-        if (n < 1)
+        if (n <= 1)
             return false;
 
         for (int i = 2; i < (n/2); i++) {
@@ -26,13 +26,17 @@ public class PrimeNumber {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
 
-        System.out.print("Enter a number: ");
+        System.out.print("Enter first number: ");
+        int start = in.nextInt();
 
-        int n = in.nextInt();
+        System.out.print("Enter second number: ");
+        int end = in.nextInt();
 
-        if (isPrime(n))
-            System.out.println(n+ " is prime");
-        else
-            System.out.println(n+" is not prime");
+        System.out.println("List of primes between "+ start + " and "+ end);
+
+        for (int i = start; i < end; i++){
+            if (isPrime(i))
+                System.out.print(i+" ");
+        }
     }
 }
