@@ -7,7 +7,28 @@ For example 2, 3, 5, 7, 11, 13, 17.... are the prime numbers.
  */
 
 public class PrimeNumber {
-    public static void main(String[] args) {
+    static void isPrime(int myPrime) {
+        int flag = 0;
+        int halfPrime = myPrime / 2;
 
+        if (myPrime == 0 || myPrime == 1)
+            System.out.println(myPrime + " is not prime number");
+        else {
+            for (int i = 2; i < halfPrime; i++) {
+                if (myPrime % i == 0) {
+                    System.out.println(myPrime + " is not prime number");
+                    flag = 1;
+                    break;
+                }
+            }
+        }
+
+        if (flag == 0)
+            System.out.println(myPrime + " is prime number");
+    }
+
+    public static void main(String[] args) {
+        int n = 17; // prime to be checked
+        isPrime(n);
     }
 }
