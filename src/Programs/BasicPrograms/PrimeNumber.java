@@ -6,31 +6,33 @@ In other words, prime numbers can't be divided by other numbers than itself or 1
 For example 2, 3, 5, 7, 11, 13, 17.... are the prime numbers.
  */
 
+import java.util.Scanner;
+
 public class PrimeNumber {
-    static void isPrime(int myPrime) {
-        int flag = 0;
-        int halfPrime = myPrime / 2;
+    public static boolean isPrime(int n) {
 
-        if (myPrime == 0 || myPrime == 1)
-            System.out.println(myPrime + " is not prime number");
-        else {
-            for (int i = 2; i < halfPrime; i++) {
-                if (myPrime % i == 0) {
-                    System.out.println(myPrime + " is not prime number");
-                    flag = 1;
-                    break;
-                }
+        if (n < 1)
+            return false;
+
+        for (int i = 2; i < (n/2); i++) {
+            if (n % i == 0) {
+                return false;
             }
-
-            if (flag == 0)
-                System.out.println(myPrime + " is prime number");
         }
+
+        return  true;
     }
 
     public static void main(String[] args) {
-        isPrime(1);
-        isPrime(2);
-        isPrime(3);
-        isPrime(30);
+        Scanner in = new Scanner(System.in);
+
+        System.out.print("Enter a number: ");
+
+        int n = in.nextInt();
+
+        if (isPrime(n))
+            System.out.println(n+ " is prime");
+        else
+            System.out.println(n+" is not prime");
     }
 }
