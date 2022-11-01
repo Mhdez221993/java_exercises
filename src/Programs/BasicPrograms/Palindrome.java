@@ -6,28 +6,25 @@ For example 545, 151, 34543, 343, 171, 48984 are the palindrome numbers.
 It can also be a string like LOL, MADAM etc.
  */
 
+import java.util.Scanner;
+
 public class Palindrome {
     public static void main(String[] args) {
-        int remainder;
-        int sum = 0;
-        int temp;
+        String reverse = "";
 
-        int n = 454; // it is the number varialb to be checked for palindrome
+        Scanner in = new Scanner(System.in);
 
-        temp = n;
+        System.out.print("Enter a string/number to check if it is a palindrome: ");
 
-        while (n > 0) {
-            remainder = n % 10;
+        String original = in.nextLine();
 
-            sum = (sum * 10) + remainder;
+        for (int i = original.length() - 1; i >= 0; i--)
+            reverse += original.charAt(i);
 
-            n = n / 10;
-        }
-
-        if (temp == sum)
-            System.out.println("palindrome number");
+        if (original.equals(reverse))
+            System.out.println("Entered string/number is a palindrome.");
         else
-            System.out.println("not palindrome");
+            System.out.println("Entered string/number isn't a palindrome.");
 
     }
 }
