@@ -21,14 +21,16 @@ public class PrimeNumber {
                     break;
                 }
             }
-        }
 
-        if (flag == 0)
-            System.out.println(myPrime + " is prime number");
+            if (flag == 0)
+                System.out.println(myPrime + " is prime number");
+        }
     }
 
     public static void main(String[] args) {
-        int n = 17; // prime to be checked
-        isPrime(n);
+        isPrime(1);
+        isPrime(2);
+        isPrime(3);
+        isPrime(30);
     }
 }
