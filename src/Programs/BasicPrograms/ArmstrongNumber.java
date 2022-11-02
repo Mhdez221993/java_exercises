@@ -27,15 +27,15 @@ public class ArmstrongNumber {
         }
 
         temp = n;
-        int sum = 0;
+        int sumOfPowers = 0;
         int remainder = 0;
 
         while (temp > 0) {
             remainder = temp % 10;
-            sum += (Math.pow(remainder, digits));
+            sumOfPowers += (Math.pow(remainder, digits));
             temp /= 10;
         }
-        return sum == n;
+        return sumOfPowers == n;
     }
 
     public static void main(String[] args) {
@@ -47,7 +47,7 @@ public class ArmstrongNumber {
 
         System.out.println("Armstrong Numbers up to "+ n + " are:");
 
-        for (int i = 0; i < n; i++)
+        for (int i = 0; i <= n; i++)
             if (isArmstrong(i))
                 System.out.print(i+" ");
     }
