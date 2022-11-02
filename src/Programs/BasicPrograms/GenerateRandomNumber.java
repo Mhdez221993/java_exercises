@@ -1,5 +1,7 @@
 package Programs.BasicPrograms;
 
+import java.util.Random;
+
 /*
 Random numbers are the numbers that use a large set of numbers and selects a number using the mathematical algorithm.
 It satisfies the following two conditions:
@@ -10,10 +12,9 @@ It satisfies the following two conditions:
  */
 public class GenerateRandomNumber {
     public static void main(String[] args) {
-        int min = 5;
-        int max = 10;
-        int random = (int)(Math.random() * (max - min + 1) + min);
+        Random random = new Random();
+        double n = random.nextDouble();
 
-        System.out.println("1s Random Number "+ random);
+        System.out.println("1s Random Number "+ n);
     }
 }
