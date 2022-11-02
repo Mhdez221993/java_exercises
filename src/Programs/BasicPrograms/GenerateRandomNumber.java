@@ -1,7 +1,6 @@
 package Programs.BasicPrograms;
 
 import java.util.Random;
-import java.util.concurrent.ThreadLocalRandom;
 
 /*
 Random numbers are the numbers that use a large set of numbers and selects a number using the mathematical algorithm.
@@ -12,9 +11,13 @@ It satisfies the following two conditions:
     It is impossible to guess the future value based on current and past values.
  */
 public class GenerateRandomNumber {
-    public static void main(String[] args) {
-        int n = ThreadLocalRandom.current().nextInt(10);
+    public  static void randomInts(int num, int origin, int bound) {
+        Random random = new Random();
 
-        System.out.println("1s Random Number "+ n);
+        random.ints(num, origin, bound).forEach(i -> System.out.print(i + " "));
+    }
+
+    public static void main(String[] args) {
+        randomInts(5, 1, 20);
     }
 }
