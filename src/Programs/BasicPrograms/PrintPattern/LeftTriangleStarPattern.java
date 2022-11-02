@@ -4,7 +4,7 @@ public class LeftTriangleStarPattern {
     static void printPatter(String pattern, int rows) {
         for (int i = 0; i < rows; i++) {
 
-            for (int j = 2*(rows - i); j >= 0; j--)
+            for (int j = 2*(rows - i) -1; j > 1; j--)
                 System.out.print(" ");
 
             for (int j = 0; j <= i; j++)
