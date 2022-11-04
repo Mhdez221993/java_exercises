@@ -38,8 +38,19 @@ public class HowToReverseANumber {
         System.out.println("The reverse of the given number using for loop is: " + reverse);
     }
 
+    static int withRecursion(int number, int reverse) {
+        if (number <= 0)
+            return reverse;
+
+        return withRecursion(number / 10, reverse * 10 + (number%10));
+    }
+
     public static void main(String[] args) {
         withWhileLoop(12345);
         withForLoop(12345);
+
+        int n = withRecursion(12345,0);
+        System.out.println("The reverse of the given number using recursion is: " + n);
+
     }
 }
