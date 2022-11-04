@@ -23,10 +23,23 @@ public class HowToReverseANumber {
             number /= 10;
         }
 
-        System.out.println("The reverse of the given number is: " + reverse);
+        System.out.println("The reverse of the given number using while loop is: " + reverse);
+    }
+
+    static void withForLoop(int number) {
+        int remainder = 0;
+        int reverse = 0;
+
+        for (;number > 0; number /= 10) {
+            remainder = number%10;
+            reverse = reverse * 10 + remainder;
+        }
+
+        System.out.println("The reverse of the given number using for loop is: " + reverse);
     }
 
     public static void main(String[] args) {
         withWhileLoop(12345);
+        withForLoop(12345);
     }
 }
