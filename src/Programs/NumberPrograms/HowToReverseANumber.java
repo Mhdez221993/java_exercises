@@ -12,8 +12,11 @@ To reverse a number, follow the steps given below:
     like this 98756 will be 65789
  */
 
+import java.util.Arrays;
+import java.util.Scanner;
+
 public class HowToReverseANumber {
-    static void withWhileLoop(int number) {
+    static int withWhileLoop(int number) {
         int remainder = 0;
         int reverse = 0;
 
@@ -23,10 +26,10 @@ public class HowToReverseANumber {
             number /= 10;
         }
 
-        System.out.println("The reverse of the given number using while loop is: " + reverse);
+        return reverse;
     }
 
-    static void withForLoop(int number) {
+    static int withForLoop(int number) {
         int remainder = 0;
         int reverse = 0;
 
@@ -35,7 +38,7 @@ public class HowToReverseANumber {
             reverse = reverse * 10 + remainder;
         }
 
-        System.out.println("The reverse of the given number using for loop is: " + reverse);
+        return reverse;
     }
 
     static int withRecursion(int number, int reverse) {
@@ -46,11 +49,26 @@ public class HowToReverseANumber {
     }
 
     public static void main(String[] args) {
-        withWhileLoop(12345);
-        withForLoop(12345);
+        System.out.print("Enter the number that you want to reverse: ");
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
 
-        int n = withRecursion(12345,0);
-        System.out.println("The reverse of the given number using recursion is: " + n);
+        boolean isNegative = n < 0 ? true : false;
+
+        if(isNegative)
+            n *= -1;
+
+        int[] arr = {withWhileLoop(n), withForLoop(n), withRecursion(n,0)};
+
+        if (isNegative)
+            Arrays.stream(arr).map(value -> value*1);
+
+
+        System.out.println("The reverse of the given number using while loop is: " + arr[0]);
+
+        System.out.println("The reverse of the given number using for loop is: " + arr[1]);
+
+        System.out.println("The reverse of the given number using recursion is: " + arr[2]);
 
     }
 }
