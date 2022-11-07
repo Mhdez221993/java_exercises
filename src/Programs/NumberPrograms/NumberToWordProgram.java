@@ -44,11 +44,11 @@ public class NumberToWordProgram {
         // executes until num does not become not '\0'
         while (x < num.length) {
             if (len >= 3) {
-                if (num[0]-'0' != 0) {
+                if (num[x]-'0' != 0) {
                     System.out.print(oneDigit[num[x]-'0'] + " ");
 
 
-                    System.out.print(oneDigit[len - 3] + " ");
+                    System.out.print(powerOfTens[len - 3] + " ");
                 }
                 --len;
                 // executes if the given number has two digits
@@ -73,12 +73,13 @@ public class NumberToWordProgram {
                         System.out.print(multiplesOfTen[i] + " ");
                     else
                         System.out.print("");
-                    ++x;
 
+                    ++x;
                     if (num[x]-'0' != 0)
                         System.out.println(oneDigit[num[x]-'0']);
                 }
             }
+
             ++x;
         }
     }
