@@ -77,6 +77,10 @@ public class NumberToWordProgram {
                     ++x;
                     if (num[x]-'0' != 0)
                         System.out.println(oneDigit[num[x]-'0']);
+
+                    if (len <= 2 && num[x]-'0' == 0)
+                        System.out.println();
+
                 }
             }
 
