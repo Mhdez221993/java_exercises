@@ -40,14 +40,23 @@ public class TechNumber {
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        System.out.print("Please introduce a number to check: ");
 
+        System.out.print("Please introduce the first range to check: ");
         // Read or initialize a number (num).
-        int n = in.nextInt();
+        int from = in.nextInt();
 
-        if (isTech(n))
-            System.out.println(n + " is a tech number");
-        else
-            System.out.println(n + " is not a tech number");
+        System.out.print("Please introduce the second range to check: ");
+        // Read or initialize a number (num).
+        int to = in.nextInt();
+
+        for (int i = from; i <= to; i++) {
+            int num1 = i%100;
+            int num2 = i/100;
+            int sum = num2 + num1;
+
+            if (i == sum*sum)
+                System.out.println(i);
+        }
+
     }
 }
