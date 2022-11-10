@@ -9,16 +9,11 @@ import java.util.Scanner;
 
 public class SunnyNumber {
     static boolean isSunny(int n) {
-        // Add 1 to the given number i.e. num+1.
-        int sunny = n + 1;
-
-        if (sunny < 0)
-            return false;
-
         // Find the square root of num+1.
-        int sqrt = (int)Math.sqrt(sunny);
+        double sqrt = (int)Math.sqrt(n);
 
-        return  (sqrt * sqrt) == sunny;
+        // If the square root is an integer, the given number is sunny, else not a sunny number.
+        return  (sqrt - Math.floor(sqrt) == 0);
     }
 
     public static void main(String[] args) {
@@ -29,7 +24,8 @@ public class SunnyNumber {
         // Read or initialize a number (num).
         int n = in.nextInt();
 
-        if (isSunny(n))
+        // Add 1 to the given number i.e. num+
+        if (isSunny(n+1))
             System.out.println("The number "+n+" is Sunny");
         else
             System.out.println("The number "+n+" is not Sunny");
