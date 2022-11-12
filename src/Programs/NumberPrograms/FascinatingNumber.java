@@ -15,48 +15,47 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class FascinatingNumber {
-    static boolean isFascinating(int number) {
-        int n2 = number * 2;
-        int n3 = number * 3;
+    static boolean isFascinating(int n) {
+        int digit = 0;
 
         // concatenating num, n2, and n3
-        String concatNum = number + "" + n2 + n3;
-        boolean found = true;
+        String str = n + "" + n*2 + n*3;
+
+        int digitsArray[] = new int[10];
 
         // checks all digits from 1 to 9 are present or not
-        for (char c = '1'; c <= '9'; c++) {
-            int count = 0;
+        for (int i = 0; i < str.length(); i++) {
+            // convert ith character into an integer
+            digit = str.charAt(i) - '0';
 
-            // loop counts the frequency of each digit
-            for (int i = 0; i < concatNum.length(); i++) {
-                char ch = concatNum.charAt(i);
-
-                // compares the character of concatNum with i
-                if (ch == c)
-                    count++;
-            }
-
-            // returns true if any of the condition returns true
-            if (count > 1 || count == 0) {
-                found = false;
-                break;
-            }
+            // check arr[digit] element and ignore 0s
+            if (digit == 0 || digitsArray[digit] == 0)
+                digitsArray[digit]++;
+            else
+                return false;
         }
 
-        return found;
+        //checks the numbers that are missing
+        for (int i = 1; i < digitsArray.length; i++) {
+            if (digitsArray[i] == 0)
+                return false;
+        }
+
+        return true;
     }
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
 
-        System.out.print("Introduce a number to check: ");
+        System.out.print("Enter lower range: ");
+        int lowerRange = in.nextInt();
 
-        int n = in.nextInt();
+        System.out.print("Enter upper range: ");
+        int upperRange = in.nextInt();
 
-        if (isFascinating(n))
-            System.out.println(n + " is fascinating");
-        else
-            System.out.println(n + " is not fascinating");
-        // Print "not a fascinating number" if any digit is missing or appeared multiple times. Else, print "fascinating number".
+        for (int i = lowerRange; i <= upperRange; i++) {
+            if (isFascinating(i))
+                System.out.print(i + " ");
+        }
     }
 }
