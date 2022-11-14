@@ -24,13 +24,18 @@ public class SpyNumber {
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        System.out.print("Enter a number to check: ");
 
-        int n = in.nextInt();
+        System.out.print("Enter lower range: ");
+        int lower = in.nextInt();
 
-        if (isSpy(n))
-            System.out.println(n + " is spy");
-        else
-            System.out.println(n + " is not spy");
+        System.out.print("Enter upper range: ");
+        int upper = in.nextInt();
+
+        for (int i = lower; i <= upper; i++) {
+            if (isSpy(i))
+                System.out.print(i + " ");
+
+        }
+
     }
 }
