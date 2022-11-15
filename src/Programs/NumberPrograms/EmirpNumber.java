@@ -9,6 +9,17 @@ It is also known as twisted prime numbers.
 import java.util.Scanner;
 
 public class EmirpNumber {
+    static boolean isPrime(int n) {
+      if (n <= 1)
+          return false;
+
+      for (int i = 2; i <= n/2; i++) {
+          if (n % i == 0)
+              return false;
+      }
+
+      return true;
+    }
 
     static boolean isEmirNumber(int n) {
         if (!isPrime(n))
@@ -17,7 +28,7 @@ public class EmirpNumber {
         int reverse = 0;
         while (n > 0) {
             int remainder = n % 10;
-            reverse = remainder * 10 + remainder;
+            reverse = reverse * 10 + remainder;
             n /= 10;
         }
 
