@@ -41,8 +41,8 @@ public class EmirpNumber {
         int n = in.nextInt();
 
         if (isEmirNumber(n))
-            System.out.println(n + " is emir");
+            System.out.println(n + " is Emir");
         else
-            System.out.println(n + " is not emir");
+            System.out.println(n + " is not Emir");
     }
 }
