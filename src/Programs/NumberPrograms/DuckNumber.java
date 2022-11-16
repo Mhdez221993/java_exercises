@@ -23,13 +23,14 @@ public class DuckNumber {
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        System.out.print("Enter a number to check: ");
+        System.out.print("Enter a range: ");
 
-        int n = in.nextInt();
+        int bound = in.nextInt();
 
-        if (isDuck(n))
-            System.out.println("Is Duck");
-        else
-            System.out.println("Is not Duck");
+        for (int i = 1; i <= bound; i++) {
+            if (isDuck(i))
+                System.out.print(i + " ");
+        }
+
     }
 }
