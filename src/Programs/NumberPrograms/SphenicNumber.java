@@ -59,13 +59,16 @@ public class SphenicNumber {
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        System.out.print("Enter a number to check: ");
 
-        int n = in.nextInt();
+        System.out.print("Enter lower limit: ");
+        int lower = in.nextInt();
 
-        if (isSphenic(n))
-            System.out.println("Is Sphenic");
-        else
-            System.out.println("Is not Sphenic");
+        System.out.print("Enter upper limit: ");
+        int upper = in.nextInt();
+
+        for (int i = lower; i <= upper; i++) {
+            if (isSphenic(i))
+                System.out.print(i + " ");
+        }
     }
 }
