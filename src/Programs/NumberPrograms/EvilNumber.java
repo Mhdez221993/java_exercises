@@ -10,8 +10,23 @@ The numbers which are not evil are called odious numbers.
 import java.util.Scanner;
 
 public class EvilNumber {
+    static long convertToBinary(int n) {
+        long binaryNumber = 0;
+
+        int remainder = 0;
+        int j = 0;
+        while (n > 0) {
+            remainder = n % 2;
+            binaryNumber += remainder * j;
+            n /= 2;
+            j = j * 10;
+        }
+
+        return binaryNumber;
+    }
+
     static boolean isEvil(int n) {
-        String nToString = Integer.toString(n, 2);
+        long binary = convertToBinary(n);
 
         int countOnesInN = 0;
 
