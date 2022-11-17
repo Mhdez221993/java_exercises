@@ -14,7 +14,7 @@ public class EvilNumber {
         long binaryNumber = 0;
 
         int remainder = 0;
-        int j = 0;
+        int j = 1;
         while (n > 0) {
             remainder = n % 2;
             binaryNumber += remainder * j;
@@ -26,26 +26,28 @@ public class EvilNumber {
     }
 
     static boolean isEvil(int n) {
-        long binary = convertToBinary(n);
+        long binaryNumber = convertToBinary(n);
 
-        int countOnesInN = 0;
+        // find total number of 1's in binary number
+        int count = 0;
 
-        for (int i = 0; i < nToString.length(); i++) {
-            if (nToString.charAt(i) == '1')
-                countOnesInN++;
+        while (binaryNumber > 0) {
+            if (binaryNumber % 10 == 1)
+                count++;
+
+            binaryNumber /= 10;
         }
 
-        return (countOnesInN % 2 == 0);
+        return (count % 2 == 0);
     }
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        System.out.print("Enter a number to check: ");
+        System.out.print("Enter range: ");
 
-        int n = in.nextInt();
+        int bound = in.nextInt();
 
-        if (isEvil(n))
-            System.out.println("Is Evil");
-        else
-            System.out.println("Is not Evil");
+        for (int i = 1; i <= bound; i++)
+            if (isEvil(i))
+                System.out.print(i + " ");
     }
 }
